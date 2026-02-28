@@ -146,11 +146,6 @@ while running:
     for car in cars:
         car.update_intersection_counter(all_intersection_rects)
 
-    # ── V2X: fiecare masina scaneaza vecinii si calculeaza nivelul de amenintare
-    # Apelat INAINTE de decizia DQN, astfel incat starea de pericol e disponibila
-    for car in cars:
-        car.update_v2x_perception(cars)
-
     for car in cars:
         car.waiting = False
 

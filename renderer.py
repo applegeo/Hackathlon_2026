@@ -117,28 +117,6 @@ def draw_hud(surface, cars, traffic_light, shared_dqn, debug_mode):
         if text:
             surface.blit(_font_small.render(text, True, color), (WIDTH-232, 12 + i*18))
 
-    # ── Legenda cerc V2X ──────────────────────────────────────
-    v2x_legend = [
-        ((30,  160, 255), "Liber"),
-        ((255, 220,   0), "Atentie"),
-        ((255, 120,   0), "Apropiat"),
-        ((255,  30,  30), "Pericol"),
-    ]
-    lx = WIDTH // 2 - 160
-    ly = HEIGHT - 44
-    leg_bg = pygame.Surface((320, 28), pygame.SRCALPHA)
-    leg_bg.fill((0, 0, 0, 130))
-    surface.blit(leg_bg, (lx - 6, ly - 4))
-    lbl_hdr = _font_tiny.render("V2X cerc:", True, (180, 220, 255))
-    surface.blit(lbl_hdr, (lx - 4, ly))
-    lx2 = lx + 68
-    for col, label in v2x_legend:
-        pygame.draw.circle(surface, col, (lx2 + 5, ly + 6), 5)
-        pygame.draw.circle(surface, col, (lx2 + 5, ly + 6), 5, 1)
-        txt = _font_tiny.render(label, True, col)
-        surface.blit(txt, (lx2 + 13, ly))
-        lx2 += 13 + txt.get_width() + 8
-
     # Hint tastatura
     hint_parts = [
         ("SPACE", (200,220,255)),
